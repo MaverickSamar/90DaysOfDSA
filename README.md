@@ -8,3 +8,5 @@ Day 3 - Recursion and Backtracking problem solving Leetcode.
 
 Day 4 - Data Structures and Algorithms (Arrays, Binary Search, Two Pointers, Linked List) Problem Solving Leetcode.
 
+Day 5 - Kadane's Algorithm, Arrays problem solving.
+
