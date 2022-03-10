@@ -10,3 +10,7 @@ Day 4 - Data Structures and Algorithms (Arrays, Binary Search, Two Pointers, Lin
 
 Day 5 - Kadane's Algorithm, Arrays problem solving.
 
+Day 6 - Graph traversals - Depth first search ((Leetcode, GFG, Youtube) + Problem Solving)
+
+
+
