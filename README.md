@@ -12,5 +12,7 @@ Day 5 - Kadane's Algorithm, Arrays problem solving.
 
 Day 6 - Graph traversals - Depth first search ((Leetcode, GFG, Youtube) + Problem Solving)
 
+Day 7 - Graph traversals - Breadth first search ((Leetcode, GFG, Youtube) + Problem Solving)
+
 
 
