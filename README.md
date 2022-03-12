@@ -14,5 +14,7 @@ Day 6 - Graph traversals - Depth first search ((Leetcode, GFG, Youtube) + Proble
 
 Day 7 - Graph traversals - Breadth first search ((Leetcode, GFG, Youtube) + Problem Solving)
 
+Day 8 - Graph traversals - Problem Solving - Leetcode(Graph Theory - Study Plan)
+
 
 
