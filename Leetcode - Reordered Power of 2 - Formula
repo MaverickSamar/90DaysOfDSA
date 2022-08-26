@@ -1,0 +1,42 @@
+!00% faster approach
+
+
+Like others solutions, i use the same idea of counting the digits and then compare with digits of candidates: 1, 2, 4, 8, 16, 32, 64 ... 2^30.
+But i noticed that if our imput is for example 251 we need to compare it only with power of 2 numbers that have exact 3 digits: 128, 256, 512, but how can we find out what numbers we need?
+
+
+
+Let's look for numbers that are powers of 2, their length(number of digits) and their power:
+
+numbers: 1 2 4 8 16 32 64 128 256 512 1024 2048 4096 8192
+length:  1 1 1 1  2  2  2   3   3   3    4    4    4    4 
+power:   0 1 2 3  4  5  6   7   8   9   10   11   12   13
+Let's see the pattern between length and power:
+If length of number is 1, power lies between 0 and 3, if length is 2 , power lies between 4 and 6 and etc.
+So all we need is to find the formula to know in what boundaries numbers lie.
+First of all what i thought is that power lies in ((length - 1) * 3 + 1, length * 3 + 1), for example for length = 2 range will be range(4, 7) = (4, 5, 6) is what we needed, but this formula doesn't work for length = 1, 4, 7 etc, because every third length(or every 10th power) there are 4 numbers with this length, that ruins the formula, so i thought "okay, what if we will add 1 every time when we our numbers length reaches 1, 4, 7 etc...", or in another words: add length // 3, but now our length of range will always be 4, that is still better than 30.
+So now our formula for range is ((length - 1) * 3 + length // 3, length * 3 + length // 3 + 1), maybe there's a way to simplify the formula, but i think it's fine, so the final code is:
+
+class Solution:
+    def reorderedPowerOf2(self, n: int) -> bool:
+        from collections import Counter
+        length = len(str(n))
+        c = Counter(str(n))
+        for i in range((length-1) * 3 + length // 3, length * 3 + length // 3 + 1):
+            candidate = str(1 << i)
+            if c == Counter(candidate):
+                return True
+        return False
+If we replace the Counter with sorted, it can be even faster:
+
+class Solution:
+    def reorderedPowerOf2(self, n: int) -> bool:
+        length = len(str(n))
+        c = sorted(str(n))
+        for i in range((length-1) * 3 + length // 3, length * 3 + length // 3 + 1):
+            if c == sorted(str(1 << i)):
+                return True
+        return False
+        
+        
+        
