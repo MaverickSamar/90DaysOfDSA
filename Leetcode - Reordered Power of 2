@@ -1,0 +1,56 @@
+class Solution {
+    
+    public HashMap<Integer, Integer> mapping(long n)
+    {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        while(n>0)
+            {
+                long d = n%10;
+                int k = (int)d;
+                if(hm.containsKey(k))
+                {
+                    hm.put(k, hm.get(k)+1);
+                }
+                else{
+                    hm.put(k, 1);
+                }
+            n=n/10;
+            }
+        return hm;
+    }
+        
+        
+    public boolean reorderedPowerOf2(int n) 
+    {
+        long dp[] = new long[32];
+        dp[0]=1;
+        for(int i=1;i<32;i++)
+        {
+            dp[i] = dp[i-1]*2;
+        }
+        
+        HashMap<Integer, HashMap<Integer, Integer>> bigMap = new HashMap<Integer, HashMap<Integer, Integer>>();
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        
+        for(int i=0;i<32;i++)
+        {
+            long n1 = dp[i];
+            bigMap.put(i, mapping(n1));
+        }
+        
+        hm = mapping(n);
+                       
+        for(int i=0;i<32;i++)
+        {
+            if(hm.equals(bigMap.get(i)))
+            {
+                return true;
+            }
+            
+        }
+        return false;
+                        
+                       
+        
+    }
+}
